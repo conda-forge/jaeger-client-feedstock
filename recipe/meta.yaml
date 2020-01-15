@@ -1,5 +1,5 @@
 {% set name = "jaeger-client" %}
-{% set version = "3.13.0" %}
+{% set version = "4.3.0" %}
 
 package:
   name: {{ name }}
@@ -8,10 +8,10 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  md5: d672222e8cc6600a298dc4a71dc8bbcd
+  md5: 86d27b8446d3e4c96332896b41307bf7
 
 build:
-  number: 1000
+  number: 0
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
   # uses fcntl module, which is not on windows.
   #    see https://stackoverflow.com/questions/1422368/fcntl-substitute-on-windows for potential substitute.

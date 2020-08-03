@@ -19,15 +19,15 @@ build:
   # can't be noarch because of windows incompatbility
 
 requirements:
-  build:
+  host:
     - python
     - pip
   run:
     - python
-    - threadloop
-    - opentracing
+    - threadloop >=1,<2
+    - opentracing >=2.1,<3.0
     - thrift
-    - tornado
+    - tornado >=4.3
 
 test:
   imports:
@@ -41,3 +41,4 @@ about:
 extra:
   recipe-maintainers:
     - msarahan
+    - scopatz

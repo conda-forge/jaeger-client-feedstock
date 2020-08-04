@@ -11,7 +11,7 @@ source:
   md5: 86d27b8446d3e4c96332896b41307bf7
 
 build:
-  number: 1
+  number: 2
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
   # uses fcntl module, which is not on windows.
   #    see https://stackoverflow.com/questions/1422368/fcntl-substitute-on-windows for potential substitute.

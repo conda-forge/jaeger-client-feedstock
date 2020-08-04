@@ -11,7 +11,7 @@ source:
   md5: 86d27b8446d3e4c96332896b41307bf7
 
 build:
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
   # uses fcntl module, which is not on windows.
   #    see https://stackoverflow.com/questions/1422368/fcntl-substitute-on-windows for potential substitute.
@@ -19,15 +19,15 @@ build:
   # can't be noarch because of windows incompatbility
 
 requirements:
-  build:
+  host:
     - python
     - pip
   run:
     - python
-    - threadloop
-    - opentracing
+    - threadloop >=1,<2
+    - opentracing >=2.1,<3.0
     - thrift
-    - tornado
+    - tornado >=4.3
 
 test:
   imports:
@@ -35,9 +35,11 @@ test:
 
 about:
   home: https://github.com/uber/jaeger-client-python
-  license: MIT
+  license: Apache-2.0
+  license_file: LICENSE
   summary: Jaeger Python OpenTracing Tracer implementation
 
 extra:
   recipe-maintainers:
     - msarahan
+    - scopatz

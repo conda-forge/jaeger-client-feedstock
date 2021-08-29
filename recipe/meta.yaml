@@ -1,5 +1,5 @@
 {% set name = "jaeger-client" %}
-{% set version = "4.5.0" %}
+{% set version = "4.6.1" %}
 
 package:
   name: {{ name }}
@@ -8,7 +8,7 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  md5: 90bcad00536b7379371ba1879187f672
+  md5: a6b7c6a0d011870f9680f9c4922fb3e5
 
 build:
   number: 0

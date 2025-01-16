@@ -7,16 +7,12 @@ package:
   version: ${{ version }}
 
 source:
-  url: https://pypi.io/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
   md5: 574b0f3f16f1afc80a12a1e8c438275a
-  file_name: ${{ name }}-${{ version }}.tar.gz
 
 build:
-  # uses fcntl module, which is not on windows.
-  #    see https://stackoverflow.com/questions/1422368/fcntl-substitute-on-windows for potential substitute.
-  # can't be noarch because of windows incompatbility
   number: 3
-  skip: win
+  noarch: python
   script: ${{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
 
 requirements:
@@ -30,6 +26,10 @@ requirements:
     - opentracing >=2.1,<3.0
     - thrift
     - tornado >=4.3
+    # uses fcntl module, which is not on windows.
+    #    see https://stackoverflow.com/questions/1422368/fcntl-substitute-on-windows for potential substitute.
+    # can't be noarch because of windows incompatbility
+    - __unix
 
 tests:
   - python:
